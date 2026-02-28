@@ -13,7 +13,7 @@ var current_cards: Array = []
 
 func _ready() -> void:
 	rng.randomize()
-	_load_perks_from_dir(perks_dir)
+	_load_perks_from_registry()
 
 	if shop_ui_scene == null:
 		push_error("ShopManager: shop_ui_scene is not assigned!")
@@ -48,29 +48,32 @@ func _ready() -> void:
 		shop_ui.visible = false
 
 
-func _load_perks_from_dir(dir_path: String) -> void:
+func _load_perks_from_registry() -> void:
 	perk_pool.clear()
 
-	var dir := DirAccess.open(dir_path)
-	if dir == null:
-		push_error("ShopManager: Can't open perks dir: " + dir_path)
+	var current_scene := get_tree().current_scene
+	if current_scene == null:
+		push_error("ShopManager: No current_scene; can't find PerkRegistry.")
 		return
 
-	dir.list_dir_begin()
-	while true:
-		var file := dir.get_next()
-		if file == "":
-			break
-		if dir.current_is_dir():
-			continue
-		if not file.ends_with(".tres"):
-			continue
+	var registry := current_scene.find_child("PerkRegistry", true, false)
+	if registry == null:
+		push_error("ShopManager: Couldn't find node 'PerkRegistry' in current scene tree.")
+		return
 
-		var perk := load(dir_path + "/" + file) as Perk
-		if perk != null:
-			perk_pool.append(perk)
+	if not registry.has_method("get"):
+		push_error("ShopManager: PerkRegistry node exists but doesn't look like the right script.")
+		return
 
-	dir.list_dir_end()
+	var perks_value = registry.get("perks")
+	if perks_value == null or typeof(perks_value) != TYPE_ARRAY:
+		push_error("ShopManager: PerkRegistry script must have `@export var perks: Array[Perk]`.")
+		return
+
+	for p in perks_value:
+		if p != null:
+			perk_pool.append(p)
+
 	print("Loaded perks:", perk_pool.size())
 	RunState.register_perks(perk_pool)
 
