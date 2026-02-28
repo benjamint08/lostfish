@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://clhvdbpcfwqfe"]
+
+[ext_resource type="Script" uid="uid://dt5a1ea0ua5pj" path="res://angry_shark_enemy.gd" id="1_kdq7c"]
+[ext_resource type="PackedScene" uid="uid://b4dyy3bfmgjxu" path="res://core/angryshark.tscn" id="2_ychxo"]
+[ext_resource type="Script" uid="uid://csddsy5g7ehd" path="res://core/SharkPlayAnim.gd" id="3_eqlvt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6dc2c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdq7c"]
+albedo_color = Color(2.6965525, 0, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gw6em"]
+height = 3.5519714
+
+[node name="Shark" type="RigidBody3D" unique_id=1315083175 groups=["Shark"]]
+mass = 10.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("1_kdq7c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=597555861 groups=["Shark"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6dc2c")
+surface_material_override/0 = SubResource("StandardMaterial3D_kdq7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=339159234 groups=["Shark"]]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, -1.5819497e-08, 0.36190796)
+shape = SubResource("CapsuleShape3D_gw6em")
+
+[node name="Shark2" parent="." unique_id=424606001 instance=ExtResource("2_ychxo")]
+transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, 0, -0.81337345, 0)
+script = ExtResource("3_eqlvt")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ddqm7g5w8kiqf"]
+
+[ext_resource type="Script" uid="uid://b46loiwufmfyo" path="res://fishplr.gd" id="1_64ltt"]
+[ext_resource type="PackedScene" uid="uid://bwqv17umrovq8" path="res://fishui.tscn" id="2_jtt6x"]
+[ext_resource type="PackedScene" uid="uid://bij25tg8u7p4" path="res://projectile.tscn" id="2_lu1mb"]
+[ext_resource type="PackedScene" uid="uid://1nud44r6cemt" path="res://clown_fish.glb" id="4_kl4gq"]
+[ext_resource type="Script" uid="uid://bt3iv721sojm8" path="res://clown_fishanim.gd" id="5_71dei"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_txdka"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_txdka"]
+
+[node name="FishPlr" type="CharacterBody3D" unique_id=1936358182 groups=["player"]]
+script = ExtResource("1_64ltt")
+projectile_scene = ExtResource("2_lu1mb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1827458011]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_txdka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507126959 groups=["player"]]
+transform = Transform3D(1.6, 0, 0, 0, -6.9938224e-08, -1.5, 0, 1.6, -6.556708e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_txdka")
+
+[node name="PlayerUI" parent="." unique_id=1503352477 instance=ExtResource("2_jtt6x")]
+metadata/_edit_use_anchors_ = true
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1366840782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86119664, 1.5, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=462594107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.467)
+
+[node name="Sketchfab_Scene" parent="." unique_id=29331193 instance=ExtResource("4_kl4gq")]
+transform = Transform3D(-0.03, 0, -2.6226832e-09, 0, 0.03, 0, 2.6226832e-09, 0, -0.03, 0.01862216, 0, -0.23922613)
+script = ExtResource("5_71dei")

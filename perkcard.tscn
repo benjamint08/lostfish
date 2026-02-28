@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cwxrtpoc1frnx"]
+
+[ext_resource type="Script" uid="uid://c06th7532t0jk" path="res://PerkCard.gd" id="1_eit2k"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1364678542]
+custom_minimum_size = Vector2(350, 470)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eit2k")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1328322197]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="VBox" unique_id=1404296300]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="VBox" unique_id=427025295]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Perk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tier" type="Label" parent="VBox" unique_id=869594454]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tier 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="VBox" unique_id=1801687296]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Desc" type="Label" parent="VBox" unique_id=2114099336]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Control2" type="Control" parent="VBox" unique_id=756285063]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cost" type="Label" parent="VBox" unique_id=1793308886]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "5000 Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="VBox" unique_id=1838660767]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buy" type="Button" parent="VBox" unique_id=1381438324]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Buy (5000 Coins)"

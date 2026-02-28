@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://crinf8kxwocgn"]
+
+[ext_resource type="Script" uid="uid://dfrv1xvmgi08e" path="res://ShopUI.gd" id="1_0jfn4"]
+[ext_resource type="PackedScene" uid="uid://cwxrtpoc1frnx" path="res://perkcard.tscn" id="1_53plf"]
+
+[node name="ShopManager" type="CanvasLayer" unique_id=1297518197]
+script = ExtResource("1_0jfn4")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1029783183]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.15294118, 0.15294118, 0.15294118, 0.70980394)
+
+[node name="Root" type="Control" parent="." unique_id=1424067984]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Root" unique_id=1722030811]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.0
+offset_top = -295.5
+offset_right = 549.0
+offset_bottom = 295.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/Panel" unique_id=848714751]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Root/Panel/VBox" unique_id=128747265]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Root/Panel/VBox" unique_id=1811149132]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Sea Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Root/Panel/VBox" unique_id=1974106172]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "\"Everything you need to swim the seas!\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Root/Panel/VBox" unique_id=538761506]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cards" type="HBoxContainer" parent="Root/Panel/VBox" unique_id=1889401175]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="Card1" parent="Root/Panel/VBox/Cards" unique_id=1364678542 instance=ExtResource("1_53plf")]
+layout_mode = 2
+
+[node name="Card2" parent="Root/Panel/VBox/Cards" unique_id=1949638411 instance=ExtResource("1_53plf")]
+layout_mode = 2
+
+[node name="Card3" parent="Root/Panel/VBox/Cards" unique_id=1165329429 instance=ExtResource("1_53plf")]
+layout_mode = 2
+
+[node name="Skip" type="Button" parent="Root/Panel/VBox" unique_id=2071354698]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Skip"

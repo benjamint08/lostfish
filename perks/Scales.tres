@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://dku0ao3g2dhcb"]
+
+[ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="1_yfaeg"]
+
+[resource]
+script = ExtResource("1_yfaeg")
+id = "scales"
+display_name = "Scales"
+description = "Shoot faster, reload faster and take less damage. Very necessary."
+base_cost = 30
+cost_per_tier = 20
+pierce_bonus_per_tier = 0
+ammo_bonus_per_tier = 0
+speed_bonus_per_tier = 0.0
+reload_speed_bonus_per_tier = 0.3
+shoot_speed_bonus_per_tier = 0.05
+damage_decrease_bonus_per_tier = 10.0
+metadata/_custom_type_script = "uid://yse1rlqeekps"

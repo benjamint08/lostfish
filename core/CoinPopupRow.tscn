@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c03ohbktvglko"]
+
+[ext_resource type="Script" uid="uid://fqg0ghp3ujn2" path="res://core/CoinPopupRow.gd" id="1_xtd74"]
+
+[node name="CoinPopupRow" type="Label" unique_id=1578321692]
+offset_right = 279.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_font_sizes/font_size = 40
+text = "+ 100 Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_xtd74")

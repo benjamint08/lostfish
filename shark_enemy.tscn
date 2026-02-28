@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cf5mk4041510x"]
+
+[ext_resource type="Script" uid="uid://gj2ng46urb14" path="res://shark_enemy.gd" id="1_mi4eh"]
+[ext_resource type="PackedScene" uid="uid://bf8pv567qn10u" path="res://core/Shark.glb" id="2_0sqcd"]
+[ext_resource type="Script" uid="uid://csddsy5g7ehd" path="res://core/SharkPlayAnim.gd" id="3_unnti"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6dc2c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unnti"]
+height = 1.9873047
+
+[node name="Shark" type="RigidBody3D" unique_id=1315083175 groups=["Shark"]]
+mass = 10.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("1_mi4eh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=597555861 groups=["Shark"]]
+visible = false
+mesh = SubResource("SphereMesh_6dc2c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=339159234 groups=["Shark"]]
+transform = Transform3D(1.5, 0, 0, 0, -7.430936e-08, -1.5, 0, 1.7, -6.556708e-08, -0.0038461685, 0.20744693, -0.30096203)
+shape = SubResource("CapsuleShape3D_unnti")
+
+[node name="Shark" parent="." unique_id=424606001 instance=ExtResource("2_0sqcd")]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0.13182378, -0.23186898, -0.13920629)
+script = ExtResource("3_unnti")

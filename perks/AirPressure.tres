@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://d2ehk2r7vl585"]
+
+[ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="1_jsgoo"]
+
+[resource]
+script = ExtResource("1_jsgoo")
+id = "airpressure"
+display_name = "Air Pressure"
+description = "Projectiles go faster. Quite a bit faster."
+base_cost = 30
+cost_per_tier = 20
+pierce_bonus_per_tier = 0
+ammo_bonus_per_tier = 0
+speed_bonus_per_tier = 0.0
+projectile_speed_bonus_per_tear = 10.0
+metadata/_custom_type_script = "uid://yse1rlqeekps"

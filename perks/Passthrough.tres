@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://c2vl05hygncux"]
+
+[ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="1_topo3"]
+
+[resource]
+script = ExtResource("1_topo3")
+id = "passthrough"
+display_name = "Passthrough"
+description = "Bubbles pierce through additional sharks. Ouch!"
+base_cost = 30
+cost_per_tier = 20
+ammo_bonus_per_tier = 0
+speed_bonus_per_tier = 0.0
+metadata/_custom_type_script = "uid://yse1rlqeekps"

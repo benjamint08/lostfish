@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bij25tg8u7p4"]
+
+[ext_resource type="Script" uid="uid://d64oysf6p0gv" path="res://projectile.gd" id="1_a85iw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_akgne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a85iw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qxf0c"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(1, 0.2, 0.2)
+gravity = Vector3(0, 1, 0)
+scale_min = 0.19999999
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a85iw"]
+transparency = 1
+albedo_color = Color(0.69411767, 0.89411765, 1, 0.05490196)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qxf0c"]
+material = SubResource("StandardMaterial3D_a85iw")
+radius = 0.25
+height = 0.5
+
+[node name="Projectile" type="RigidBody3D" unique_id=1123559912]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("1_a85iw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=30102911]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_akgne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1753180113]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_a85iw")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1010603527]
+amount = 75
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_qxf0c")
+draw_pass_1 = SubResource("SphereMesh_qxf0c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

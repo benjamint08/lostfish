@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://dpaf1uhsgxsru"]
+
+[ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="1_02oc6"]
+
+[resource]
+script = ExtResource("1_02oc6")
+id = "speed"
+display_name = "Speed"
+description = "Go faster. What else could it mean?"
+base_cost = 30
+cost_per_tier = 20
+pierce_bonus_per_tier = 0
+ammo_bonus_per_tier = 0
+speed_bonus_per_tier = 2.0
+metadata/_custom_type_script = "uid://yse1rlqeekps"

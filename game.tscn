@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://eghjwgyuxq0k"]
+
+[ext_resource type="PackedScene" uid="uid://bsqw7kvsgl5i8" path="res://falling_block.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://ddqm7g5w8kiqf" path="res://fishplr.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cbw3b1vbof0ja" path="res://game_manager.tscn" id="3_feb5d"]
+[ext_resource type="Environment" uid="uid://1f7tpexngjqs" path="res://core/blue_env.tres" id="4_eow3j"]
+[ext_resource type="PackedScene" uid="uid://clhvdbpcfwqfe" path="res://angry_shark_enemy.tscn" id="4_fc0e3"]
+[ext_resource type="Environment" uid="uid://b3w2ai5u0vf4s" path="res://core/red_env.tres" id="5_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://cgufl6vvw3yeq" path="res://core/blue_sea.tscn" id="5_ryrav"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mwb40"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_80nbo"]
+
+[node name="MainLevel" type="Node3D" unique_id=1688016734]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1722968914]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1917208201]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+mesh = SubResource("BoxMesh_mwb40")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=360375566]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+shape = SubResource("BoxShape3D_80nbo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1174538869]
+transform = Transform3D(1, 0, 0, 0, -0.15669295, 0.9876474, 0, -0.9876474, -0.15669295, 0, 6.6161947, 14.95937)
+light_color = Color(0.3137255, 0.627451, 0.7058824, 1)
+
+[node name="RigidBody3D" parent="." unique_id=1689096152 instance=ExtResource("1_80nbo")]
+transform = Transform3D(-0.39149946, -0.8835433, 0.25705907, 0.6831413, -0.4662354, -0.56208766, 0.6164788, -0.04444934, 0.7861159, 0, 6.8188086, 0)
+
+[node name="FishPlr" parent="." unique_id=1936358182 instance=ExtResource("2_e2o6t")]
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1545946884]
+metadata/_edit_group_ = true
+
+[node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=562472426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -17)
+
+[node name="Marker3D8" type="Marker3D" parent="SpawnPoints" unique_id=739242567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -21.263153)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1885100932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 16.575243)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=575114256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 23.980839)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=557690106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.513784, 6, 0.3162899)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnPoints" unique_id=658155283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.67994, 6, 0.3162899)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnPoints" unique_id=959458586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.265749, 6, 0.3162899)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=1714652846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.911015, 6, 0.3162899)
+
+[node name="GameManager" parent="." unique_id=102320136 instance=ExtResource("3_feb5d")]
+blue_env = ExtResource("4_eow3j")
+red_env = ExtResource("5_j5wjh")
+angry_enemy_scene = ExtResource("4_fc0e3")
+
+[node name="WorldEnvironment" parent="." unique_id=523672202 instance=ExtResource("5_ryrav")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cbw3b1vbof0ja"]
+
+[ext_resource type="Script" uid="uid://ddac3tr8euwlw" path="res://game_manager.gd" id="1_70yv6"]
+[ext_resource type="PackedScene" uid="uid://cf5mk4041510x" path="res://shark_enemy.tscn" id="2_smx3j"]
+
+[node name="GameManager" type="Node3D" unique_id=102320136]
+script = ExtResource("1_70yv6")
+enemy_scene = ExtResource("2_smx3j")

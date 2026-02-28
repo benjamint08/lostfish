@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Perk" format=3 uid="uid://bect8tilxw80x"]
+
+[ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="1_02oc6"]
+
+[resource]
+script = ExtResource("1_02oc6")
+id = "lungs"
+display_name = "Lungs"
+description = "Increases bubble ammo capacity. Do fish even have lungs?"
+base_cost = 30
+cost_per_tier = 20
+pierce_bonus_per_tier = 0
+ammo_bonus_per_tier = 4
+speed_bonus_per_tier = 0.0
+metadata/_custom_type_script = "uid://yse1rlqeekps"

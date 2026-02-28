@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b4dyy3bfmgjxu"]
+
+[ext_resource type="PackedScene" uid="uid://bf8pv567qn10u" path="res://core/Shark.glb" id="1_7sqfv"]
+
+[node name="Shark" unique_id=424606001 instance=ExtResource("1_7sqfv")]
