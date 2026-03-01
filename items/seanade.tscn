@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://brj73mbljuoed"]
+
+[ext_resource type="PackedScene" uid="uid://0nxpan7yq6f6" path="res://items/seanade_obj.tscn" id="1_2uslh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2uslh"]
+radius = 1.4416591
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1939346092]
+
+[node name="seanade2" parent="." unique_id=1386020810 instance=ExtResource("1_2uslh")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1646958496]
+shape = SubResource("SphereShape3D_2uslh")

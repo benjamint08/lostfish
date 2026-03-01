@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dl4x8s4qp5dv1"]
+
+[ext_resource type="Script" uid="uid://d3ywhi77e5mmi" path="res://Item.gd" id="1_slf6b"]
+
+[resource]
+script = ExtResource("1_slf6b")
+id = "seanade"
+display_name = "Seanade"
+description = "Underwater explosive. Big damage. 30s cooldown."
+base_cost = 100
+metadata/_custom_type_script = "uid://d3ywhi77e5mmi"

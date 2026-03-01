@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dnu60c6dggiv6"]
+
+[ext_resource type="PackedScene" uid="uid://ce55frmgvewtr" path="res://objects/shopmarine_body_2.tscn" id="2_hybao"]
+[ext_resource type="PackedScene" uid="uid://xb7bp3200bk2" path="res://objects/shopmarine_rotor_2.tscn" id="2_kbvq5"]
+[ext_resource type="Script" uid="uid://ckhti7s3miiv5" path="res://core/ShopMarineManager.gd" id="3_hybao"]
+[ext_resource type="Script" uid="uid://n6jra2gl6k6d" path="res://ShopMarineOpenUI.gd" id="3_kglrk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hybao"]
+size = Vector3(54.15503, 33.489746, 59.324463)
+
+[sub_resource type="Animation" id="Animation_hybao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shopmarine_body2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shopmarine_body2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kglrk"]
+resource_name = "shopmarine_enter"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shopmarine_body2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.97, 8.466666, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-156.45584, 233.64366, -493.95203), Vector3(-120.05214, 147.1151, -379.02066), Vector3(0, 8.429468, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shopmarine_body2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.97, 4.1757603, 9, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.82953626, 0.39099994, 0.14220524), Vector3(1.1855625, 0.3793645, 0.23719333), Vector3(0.25664863, 0.1838322, 0.018707687), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2bdbl"]
+resource_name = "shopmarine_exit"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shopmarine_body2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 12.697067, 0), Vector3(-156.45584, 415.9255, -857.8852)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shopmarine_body2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0), Vector3(-0.6248278, -2.7977452, -0.16755159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2bdbl"]
+_data = {
+&"RESET": SubResource("Animation_hybao"),
+&"shopmarine_enter": SubResource("Animation_kglrk"),
+&"shopmarine_exit": SubResource("Animation_2bdbl")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_hybao"]
+size = Vector3(20, 1, 20)
+
+[node name="ShopMarine" type="Node3D" unique_id=293915873]
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000002, 0, 0, 0)
+
+[node name="shopmarine_body2" parent="." unique_id=1988808150 instance=ExtResource("2_hybao")]
+transform = Transform3D(0.29999986, 0, 0, 0, 0.29999998, 0, 0, 0, 0.30000004, 0, 0, 0)
+
+[node name="shopmarine_rotor2" parent="shopmarine_body2" unique_id=1788758579 instance=ExtResource("2_kbvq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6095145, -20.11229)
+
+[node name="Camera3D" type="Camera3D" parent="shopmarine_body2" unique_id=1970541017]
+transform = Transform3D(-1.0000001, 0, -8.742281e-08, 0, 0.9999995, 0, 8.7422784e-08, 0, -0.99999976, 0, 21.777298, -60.01855)
+
+[node name="Area3D" type="Area3D" parent="shopmarine_body2" unique_id=1324562332]
+script = ExtResource("3_kglrk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shopmarine_body2/Area3D" unique_id=1414774795]
+transform = Transform3D(0.9999223, -3.1664968e-07, 2.7269125e-06, 1.6763806e-06, 0.99998575, 6.556511e-07, 1.4901161e-07, 2.3841858e-07, 0.99999654, 3.3806152, 6.7457275, -1.3812256)
+shape = SubResource("BoxShape3D_hybao")
+
+[node name="ShopMarineManager" type="Node3D" parent="." unique_id=1093669260]
+script = ExtResource("3_hybao")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=149371249]
+libraries/ = SubResource("AnimationLibrary_2bdbl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1100999938]
+visible = false
+mesh = SubResource("BoxMesh_hybao")
+
+[connection signal="body_entered" from="shopmarine_body2/Area3D" to="shopmarine_body2/Area3D" method="_on_body_entered"]

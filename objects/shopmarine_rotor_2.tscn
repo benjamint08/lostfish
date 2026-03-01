@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://xb7bp3200bk2"]
+
+[ext_resource type="PackedScene" uid="uid://okphn4cnqyk7" path="res://objects/shopmarine_rotor.glb" id="1_asqoq"]
+[ext_resource type="Script" uid="uid://d1cnmjwwe47jt" path="res://objects/RotorSpin.gd" id="2_arw52"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arw52"]
+size = Vector3(13.073303, 13.314758, 3.1345215)
+
+[node name="shopmarine_rotor2" unique_id=1788758579 instance=ExtResource("1_asqoq")]
+script = ExtResource("2_arw52")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1374829911]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=351313541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021087646, 0.1088562, 0.7113037)
+shape = SubResource("BoxShape3D_arw52")

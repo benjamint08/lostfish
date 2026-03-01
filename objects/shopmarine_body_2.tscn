@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ce55frmgvewtr"]
+
+[ext_resource type="PackedScene" uid="uid://dti1rq40yrm2p" path="res://objects/shopmarine_body.glb" id="1_ud3am"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ud3am"]
+size = Vector3(25.240112, 30.436523, 38.07608)
+
+[node name="shopmarine_body2" unique_id=1988808150 instance=ExtResource("1_ud3am")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=2009652394]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=775186259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031799316, 4.059082, 0.8336029)
+shape = SubResource("BoxShape3D_ud3am")

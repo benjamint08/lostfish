@@ -14,6 +14,7 @@ var hitCooldown := 1
 var canBeHit = true
 
 @export var projectile_scene: PackedScene
+@export var seanade_scene: PackedScene
 @onready var cam: Camera3D = $"SpringArm3D/Camera3D"
 @onready var ammo_count: RichTextLabel = $"PlayerUI/AmmoCount"
 @onready var weapon_name: RichTextLabel = $"PlayerUI/WeaponName"
@@ -60,6 +61,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("reload"):
 		reload_weapon()
+		
+	if event.is_action_pressed("grenade") and RunState.has_item("seanade") == 1:
+		print("hi")
+		# throw seanade
 	
 	if event is InputEventMouseButton:
 		if unlocked == true:
@@ -141,7 +146,7 @@ func _physics_process(delta: float) -> void:
 			canBeHit = false
 			var damageToDecrease: float = dmgPerEnemyHit
 			if(RunState.has_perk("scales")):
-				damageToDecrease -= RunState.get_perk_data("scales", RunState.has_perk("scales"))["damage_decrease_bonus"]
+				damageToDecrease -= (RunState.get_perk_data("scales", RunState.has_perk("scales"))["damage_decrease_bonus"] / 2)
 			if body is AngryShark:
 				health -= damageToDecrease * 3
 			else:

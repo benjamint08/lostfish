@@ -3,16 +3,25 @@ extends Node
 var coins: int = 0
 var perk_tiers := {}
 var perk_defs := {}
+var item_defs := {}
+
+var current_items := {}
 
 signal coins_changed(new_amount: int)
 signal coins_gained(amount: int, reason: String)
 signal coins_removed(amount: int, reason: String)
 signal perks_total(text: String)
+signal item_gained(id: String)
 
 func register_perks(perks: Array[Perk]) -> void:
 	perk_defs.clear()
 	for p in perks:
 		perk_defs[p.id] = p
+		
+func register_items(items: Array[Item]) -> void:
+	item_defs.clear()
+	for p in items:
+		item_defs[p.id] = p
 		
 func get_tier(perk_id: String) -> int:
 	return int(perk_tiers.get(perk_id, 0))
@@ -33,6 +42,15 @@ func apply_perk(perk: Perk) -> void:
 	perk_tiers[perk.id] = t
 	perks_total.emit(_build_perks_text())
 	
+func apply_item(item: Item) -> void:
+	current_items[item.id] = item
+	item_gained.emit(item.id)
+	
+func has_item(item_id: String) -> int:
+	if current_items.has(item_id):
+		return 1
+	return 0
+		
 func get_perk_data(perk_id: String, tier: int = -1) -> Dictionary:
 	if not perk_defs.has(perk_id):
 		return {}

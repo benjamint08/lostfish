@@ -7,13 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://clhvdbpcfwqfe" path="res://angry_shark_enemy.tscn" id="4_fc0e3"]
 [ext_resource type="Environment" uid="uid://b3w2ai5u0vf4s" path="res://core/red_env.tres" id="5_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cgufl6vvw3yeq" path="res://core/blue_sea.tscn" id="5_ryrav"]
+[ext_resource type="AudioStream" uid="uid://d2mwtdfjrslhv" path="res://audio/321.wav" id="7_e8heu"]
 [ext_resource type="Script" uid="uid://bimqwgxkmmg40" path="res://core/perk_registry.gd" id="8_215e1"]
+[ext_resource type="AudioStream" uid="uid://cp4arr2its1ux" path="res://audio/blood-round.wav" id="8_rvswv"]
 [ext_resource type="Script" uid="uid://yse1rlqeekps" path="res://Perk.gd" id="9_7sc4i"]
+[ext_resource type="AudioStream" uid="uid://r6v2tw2y7wj0" path="res://audio/new-round.wav" id="9_boyg6"]
 [ext_resource type="Resource" uid="uid://d2ehk2r7vl585" path="res://perks/AirPressure.tres" id="10_80cx4"]
 [ext_resource type="Resource" uid="uid://bect8tilxw80x" path="res://perks/Lungs.tres" id="11_e8heu"]
 [ext_resource type="Resource" uid="uid://c2vl05hygncux" path="res://perks/Passthrough.tres" id="12_rvswv"]
 [ext_resource type="Resource" uid="uid://dku0ao3g2dhcb" path="res://perks/Scales.tres" id="13_boyg6"]
 [ext_resource type="Resource" uid="uid://dpaf1uhsgxsru" path="res://perks/Speed.tres" id="14_e36ub"]
+[ext_resource type="PackedScene" uid="uid://dnu60c6dggiv6" path="res://ShopMarine.tscn" id="18_rvswv"]
+[ext_resource type="Script" uid="uid://d3ywhi77e5mmi" path="res://Item.gd" id="19_e36ub"]
+[ext_resource type="Resource" uid="uid://dl4x8s4qp5dv1" path="res://items/Seanade.tres" id="20_hb5m1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mwb40"]
 
@@ -72,9 +78,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.911015, 6, 0.3162899)
 blue_env = ExtResource("4_eow3j")
 red_env = ExtResource("5_j5wjh")
 angry_enemy_scene = ExtResource("4_fc0e3")
+countdown_audio = ExtResource("7_e8heu")
+blood_round_audio = ExtResource("8_rvswv")
+new_round_audio = ExtResource("9_boyg6")
+shopmarine_scene = ExtResource("18_rvswv")
 
 [node name="WorldEnvironment" parent="." unique_id=523672202 instance=ExtResource("5_ryrav")]
 
 [node name="PerkRegistry" type="Node" parent="." unique_id=2050363602]
 script = ExtResource("8_215e1")
 perks = Array[ExtResource("9_7sc4i")]([ExtResource("10_80cx4"), ExtResource("11_e8heu"), ExtResource("12_rvswv"), ExtResource("13_boyg6"), ExtResource("14_e36ub")])
+items = Array[ExtResource("19_e36ub")]([ExtResource("20_hb5m1")])
+
+[node name="ShopPoint" type="Marker3D" parent="." unique_id=973431567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.841454, 14.971076, 0)
