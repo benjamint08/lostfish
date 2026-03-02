@@ -16,6 +16,9 @@ func _on_body_entered(body: Node) -> void:
 		hit = true
 		body.die()
 		player.add_health(5)
+		
+	if body.is_in_group("seanade"):
+		body.get_node("SeanadeArea").explode()
 
 	_die_and_leave_particles()
 

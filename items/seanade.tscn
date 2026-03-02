@@ -1,14 +1,158 @@
 [gd_scene format=3 uid="uid://brj73mbljuoed"]
 
 [ext_resource type="PackedScene" uid="uid://0nxpan7yq6f6" path="res://items/seanade_obj.tscn" id="1_2uslh"]
+[ext_resource type="Script" uid="uid://bxw1rdl434xsw" path="res://items/Seanade.gd" id="1_h8vdx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2uslh"]
 radius = 1.4416591
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=1939346092]
+[sub_resource type="Curve" id="Curve_2uslh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.62328774, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h8vdx"]
+curve = SubResource("Curve_2uslh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2uslh"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_h8vdx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2uslh"]
+albedo_color = Color(1, 0.5372549, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.5372549, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h8vdx"]
+material = SubResource("StandardMaterial3D_2uslh")
+top_radius = 0.1
+bottom_radius = 0.0
+
+[sub_resource type="Gradient" id="Gradient_2uslh"]
+offsets = PackedFloat32Array(0, 0.50751877, 0.84962404)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.5372549, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h8vdx"]
+gradient = SubResource("Gradient_2uslh")
+
+[sub_resource type="Curve" id="Curve_in8ms"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.9636364), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gkfhp"]
+curve = SubResource("Curve_in8ms")
+
+[sub_resource type="Curve" id="Curve_h8vdx"]
+_data = [Vector2(0, 0.027272701), 0.0, 0.0, 0, 0, Vector2(0.23630139, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_in8ms"]
+curve = SubResource("Curve_h8vdx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h8vdx"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_in8ms")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("GradientTexture1D_h8vdx")
+emission_curve = SubResource("CurveTexture_gkfhp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8vdx"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_in8ms"]
+material = SubResource("StandardMaterial3D_h8vdx")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_vgjnl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.640411, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pgh2s"]
+curve = SubResource("Curve_vgjnl")
+
+[sub_resource type="Curve" id="Curve_gkfhp"]
+_data = [Vector2(0, 0.027272701), 0.0, 0.0, 0, 0, Vector2(0.23630139, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vgjnl"]
+curve = SubResource("Curve_gkfhp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pgh2s"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_vgjnl")
+color = Color(0.6261741, 0.6161376, 0.6024489, 1)
+alpha_curve = SubResource("CurveTexture_pgh2s")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h8vdx"]
+radius = 20.0
+
+[node name="Seanade" type="RigidBody3D" unique_id=1939346092 groups=["seanade"]]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+gravity_scale = 0.0
 
 [node name="seanade2" parent="." unique_id=1386020810 instance=ExtResource("1_2uslh")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1646958496]
 shape = SubResource("SphereShape3D_2uslh")
+
+[node name="Debris" type="GPUParticles3D" parent="." unique_id=591840484]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_2uslh")
+draw_pass_1 = SubResource("CylinderMesh_h8vdx")
+
+[node name="Fire" type="GPUParticles3D" parent="." unique_id=323446275]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_h8vdx")
+draw_pass_1 = SubResource("SphereMesh_in8ms")
+
+[node name="Smoke" type="GPUParticles3D" parent="." unique_id=1908491081]
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_pgh2s")
+draw_pass_1 = SubResource("SphereMesh_in8ms")
+
+[node name="SeanadeArea" type="Area3D" parent="." unique_id=1229023673 groups=["seanade"]]
+script = ExtResource("1_h8vdx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeanadeArea" unique_id=1488211122]
+shape = SubResource("SphereShape3D_h8vdx")
+
+[connection signal="body_entered" from="SeanadeArea" to="SeanadeArea" method="_on_body_entered"]
+[connection signal="body_exited" from="SeanadeArea" to="SeanadeArea" method="_on_body_exited"]

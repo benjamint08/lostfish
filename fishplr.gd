@@ -62,10 +62,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("reload"):
 		reload_weapon()
 		
-	if event.is_action_pressed("grenade") and RunState.has_item("seanade") == 1:
-		print("hi")
-		# throw seanade
-	
+	if event.is_action_pressed("grenade") and RunState.has_item("seanade") == 1 and RunState.can_use_seanade() == true:
+		var nade := seanade_scene.instantiate()
+
+		get_tree().current_scene.add_child(nade)
+
+		nade.global_transform = cam.global_transform
+		var forward := -cam.global_transform.basis.z
+		nade.global_position += forward * 8
+
+		if nade is RigidBody3D:
+			#var up := cam.global_transform.basis.y <- i didnt like this. maybe will re-enable
+			var throw_dir := (forward).normalized()
+
+			var throw_power := 5.0
+			nade.apply_central_impulse(throw_dir * throw_power)
+
+			nade.apply_torque_impulse(Vector3(
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0)
+			) * 2.0)
+			RunState.use_seanade()
+				
 	if event is InputEventMouseButton:
 		if unlocked == true:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

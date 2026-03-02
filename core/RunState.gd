@@ -13,6 +13,19 @@ signal coins_removed(amount: int, reason: String)
 signal perks_total(text: String)
 signal item_gained(id: String)
 
+signal seanade_used
+
+var can_use_seanade_bool = true
+
+func use_seanade():
+	can_use_seanade_bool = false
+	seanade_used.emit()
+	await get_tree().create_timer(30).timeout
+	can_use_seanade_bool = true
+
+func can_use_seanade() -> bool:
+	return can_use_seanade_bool
+
 func register_perks(perks: Array[Perk]) -> void:
 	perk_defs.clear()
 	for p in perks:

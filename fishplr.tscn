@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b46loiwufmfyo" path="res://fishplr.gd" id="1_64ltt"]
 [ext_resource type="PackedScene" uid="uid://bwqv17umrovq8" path="res://fishui.tscn" id="2_jtt6x"]
 [ext_resource type="PackedScene" uid="uid://bij25tg8u7p4" path="res://projectile.tscn" id="2_lu1mb"]
+[ext_resource type="PackedScene" uid="uid://brj73mbljuoed" path="res://items/seanade.tscn" id="3_qdhgs"]
 [ext_resource type="PackedScene" uid="uid://1nud44r6cemt" path="res://clown_fish.glb" id="4_kl4gq"]
 [ext_resource type="Script" uid="uid://bt3iv721sojm8" path="res://clown_fishanim.gd" id="5_71dei"]
 
@@ -13,6 +14,7 @@
 [node name="FishPlr" type="CharacterBody3D" unique_id=1936358182 groups=["player"]]
 script = ExtResource("1_64ltt")
 projectile_scene = ExtResource("2_lu1mb")
+seanade_scene = ExtResource("3_qdhgs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1827458011]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
