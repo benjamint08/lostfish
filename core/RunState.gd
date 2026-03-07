@@ -14,17 +14,28 @@ signal perks_total(text: String)
 signal item_gained(id: String)
 
 signal seanade_used
+signal heal_used
 
 var can_use_seanade_bool = true
+var can_use_heal_bool = true
 
 func use_seanade():
 	can_use_seanade_bool = false
 	seanade_used.emit()
 	await get_tree().create_timer(30).timeout
 	can_use_seanade_bool = true
+	
+func use_heal():
+	can_use_heal_bool = false
+	heal_used.emit()
+	await get_tree().create_timer(60).timeout
+	can_use_heal_bool = true
 
 func can_use_seanade() -> bool:
 	return can_use_seanade_bool
+	
+func can_use_heal() -> bool:
+	return can_use_heal_bool
 
 func register_perks(perks: Array[Perk]) -> void:
 	perk_defs.clear()
@@ -130,3 +141,15 @@ func remove_coins(removeValue: int, reason: String) -> void:
 	coins_changed.emit(coins)
 	coins_removed.emit(removeValue, reason)
 		
+
+func reset() -> void:
+	coins = 0
+	coins_changed.emit(coins)
+
+	perk_tiers.clear()
+	perks_total.emit("")
+
+	current_items.clear()
+
+	can_use_seanade_bool = true
+	can_use_heal_bool = true

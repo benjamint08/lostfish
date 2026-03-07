@@ -18,7 +18,17 @@ var shop_ui: CanvasLayer = null
 var shop_open := false
 var current_cards: Array = []
 
+func wait_for_game_scene() -> void:
+	while true:
+		var scene := get_tree().current_scene
+		
+		if scene != null and scene.scene_file_path == "res://game.tscn":
+			return
+		
+		await get_tree().process_frame
+		
 func _ready() -> void:
+	await wait_for_game_scene()
 	rng.randomize()
 	_load_perks_from_registry()
 

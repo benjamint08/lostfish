@@ -1,6 +1,8 @@
 extends RigidBody3D
 
+@export var hit_shark_sound: AudioStreamWAV
 @onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var hit_player: AudioStreamPlayer3D = player.find_child("HitSharkPlayer3D")
 @onready var trail: GPUParticles3D = $GPUParticles3D
 var hit := false
 
@@ -14,6 +16,8 @@ func _on_body_entered(body: Node) -> void:
 
 	if body is Shark or body is AngryShark:
 		hit = true
+		hit_player.stream = hit_shark_sound
+		hit_player.play()
 		body.die()
 		player.add_health(5)
 		

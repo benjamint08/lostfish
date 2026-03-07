@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c6ua01o0as402"]
+
+[ext_resource type="PackedScene" uid="uid://cgufl6vvw3yeq" path="res://core/blue_sea.tscn" id="1_kctv7"]
+[ext_resource type="PackedScene" uid="uid://caqc5enbv8re" path="res://idlefish.tscn" id="2_2nw6q"]
+[ext_resource type="PackedScene" uid="uid://bhvfgeotsyoi8" path="res://idle_shark_enemy.tscn" id="3_w3x71"]
+[ext_resource type="Script" uid="uid://l3piae4qh75i" path="res://MainMenuUI.gd" id="4_af4fq"]
+
+[node name="gameover" type="Node3D" unique_id=1504058456]
+
+[node name="WorldEnvironment" parent="." unique_id=523672202 instance=ExtResource("1_kctv7")]
+
+[node name="FishPlr" parent="." unique_id=1936358182 instance=ExtResource("2_2nw6q")]
+transform = Transform3D(0.04548917, 0.95272756, -0.30040148, -0.9592595, -0.042278394, -0.27934512, -0.27884024, 0.3008703, 0.91198987, 7.0638466, 1.0827163, 3.7903838)
+
+[node name="Shark" parent="." unique_id=1315083175 instance=ExtResource("3_w3x71")]
+transform = Transform3D(-0.5219006, 0.16498376, -0.83689904, -0.07450545, 0.9685508, 0.23739968, 0.8497464, 0.18625261, -0.49319506, 5.6301227, 1.3014321, 2.8692782)
+
+[node name="Shark2" parent="." unique_id=2005368287 instance=ExtResource("3_w3x71")]
+transform = Transform3D(-0.9574197, -0.0031430065, -0.2886826, -0.092889085, 0.95012236, 0.29772347, 0.27334815, 0.3118618, -0.9099577, 6.7174187, 1.8504221, 1.6452037)
+
+[node name="Shark3" parent="." unique_id=389195359 instance=ExtResource("3_w3x71")]
+transform = Transform3D(-0.09484163, -0.2438645, 0.96516067, -0.074505426, 0.96855074, 0.2373997, -0.99270046, -0.049394384, -0.11002803, 9.258884, 1.5670304, 3.3365726)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1799668719]
+transform = Transform3D(0.49208936, 0, -0.87054473, 0, 1, 0, 0.87054473, 0, 0.49208936, 1.5580893, 2.5937665, 5.588652)
+
+[node name="Control" type="Control" parent="." unique_id=491034678]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("4_af4fq")
+
+[node name="Label" type="Label" parent="Control" unique_id=169366322]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -174.0
+offset_right = 162.5
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+
+[node name="Label2" type="Label" parent="Control" unique_id=533668281]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -99.0
+offset_right = 199.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "The sharks got you, but could make it next time?"
+
+[node name="PlayBtn" type="Button" parent="Control" unique_id=793191109]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -30.0
+offset_right = 136.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="QuitBtn" type="Button" parent="Control" unique_id=347700010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -30.0
+offset_right = -10.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"

@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dnu60c6dggiv6" path="res://ShopMarine.tscn" id="18_rvswv"]
 [ext_resource type="Script" uid="uid://d3ywhi77e5mmi" path="res://Item.gd" id="19_e36ub"]
 [ext_resource type="Resource" uid="uid://dl4x8s4qp5dv1" path="res://items/Seanade.tres" id="20_hb5m1"]
+[ext_resource type="Resource" uid="uid://c6cotakwt04pk" path="res://items/MedPen.tres" id="21_hb5m1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mwb40"]
 
@@ -88,7 +89,7 @@ shopmarine_scene = ExtResource("18_rvswv")
 [node name="PerkRegistry" type="Node" parent="." unique_id=2050363602]
 script = ExtResource("8_215e1")
 perks = Array[ExtResource("9_7sc4i")]([ExtResource("10_80cx4"), ExtResource("11_e8heu"), ExtResource("12_rvswv"), ExtResource("13_boyg6"), ExtResource("14_e36ub")])
-items = Array[ExtResource("19_e36ub")]([ExtResource("20_hb5m1")])
+items = Array[ExtResource("19_e36ub")]([ExtResource("20_hb5m1"), ExtResource("21_hb5m1")])
 
 [node name="ShopPoint" type="Marker3D" parent="." unique_id=973431567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.841454, 14.971076, 0)

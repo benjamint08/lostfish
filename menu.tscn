@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d377qm0nth21"]
+
+[ext_resource type="PackedScene" uid="uid://cgufl6vvw3yeq" path="res://core/blue_sea.tscn" id="1_lti8b"]
+[ext_resource type="PackedScene" uid="uid://caqc5enbv8re" path="res://idlefish.tscn" id="2_ouk20"]
+[ext_resource type="PackedScene" uid="uid://bhvfgeotsyoi8" path="res://idle_shark_enemy.tscn" id="3_mae5d"]
+[ext_resource type="Script" uid="uid://l3piae4qh75i" path="res://MainMenuUI.gd" id="4_4hy44"]
+
+[node name="menu" type="Node3D" unique_id=1504058456]
+
+[node name="WorldEnvironment" parent="." unique_id=523672202 instance=ExtResource("1_lti8b")]
+
+[node name="FishPlr" parent="." unique_id=1936358182 instance=ExtResource("2_ouk20")]
+transform = Transform3D(0.96033746, 0.08735963, 0.26480213, -8.310087e-09, 0.94965535, -0.31329635, -0.2788402, 0.3008703, 0.91198975, 7.0638466, 1.0827163, 3.7903838)
+
+[node name="Shark" parent="." unique_id=1315083175 instance=ExtResource("3_mae5d")]
+transform = Transform3D(-0.81782836, 0.07687504, -0.5703042, -0.07450543, 0.9685507, 0.23739964, 0.57061875, 0.23664294, -0.7863805, 0.85341716, 3.348193, -4.051337)
+
+[node name="Shark2" parent="." unique_id=2005368287 instance=ExtResource("3_mae5d")]
+transform = Transform3D(-0.95743793, -0.0029063374, -0.2886247, -0.07450545, 0.9685508, 0.23739968, 0.27885777, 0.24879958, -0.92754364, 4.436076, 3.348193, -4.051337)
+
+[node name="Shark3" parent="." unique_id=389195359 instance=ExtResource("3_mae5d")]
+transform = Transform3D(-0.9200037, -0.15861258, 0.3583788, -0.07450543, 0.96855074, 0.23739967, -0.38476253, 0.19170742, -0.9028876, 8.510317, 3.348193, -4.051337)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1799668719]
+transform = Transform3D(0.8506643, 0, -0.5257092, 0, 1, 0, 0.5257092, 0, 0.8506643, 1.5580893, 2.5937665, 7.210641)
+
+[node name="Control" type="Control" parent="." unique_id=491034678]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("4_4hy44")
+
+[node name="Label" type="Label" parent="Control" unique_id=169366322]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -26.0
+offset_right = 257.0
+offset_bottom = 57.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Lost Fish"
+
+[node name="Label2" type="Label" parent="Control" unique_id=533668281]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = 42.0
+offset_right = 168.0
+offset_bottom = 66.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "made for Hack Club"
+
+[node name="PlayBtn" type="Button" parent="Control" unique_id=793191109]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = 83.0
+offset_right = 276.0
+offset_bottom = 143.0
+grow_vertical = 2
+text = "Play"
+
+[node name="QuitBtn" type="Button" parent="Control" unique_id=1328472637]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = 152.0
+offset_right = 276.0
+offset_bottom = 212.0
+grow_vertical = 2
+text = "Quit"

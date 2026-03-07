@@ -15,6 +15,10 @@ var canBeHit = true
 
 @export var projectile_scene: PackedScene
 @export var seanade_scene: PackedScene
+@export var pew_sound: AudioStreamMP3
+@export var heal_sound: AudioStreamWAV
+@onready var pew_player: AudioStreamPlayer3D = $"PewPlayer3D"
+@onready var heal_player: AudioStreamPlayer3D = $"HealPlayer3D"
 @onready var cam: Camera3D = $"SpringArm3D/Camera3D"
 @onready var ammo_count: RichTextLabel = $"PlayerUI/AmmoCount"
 @onready var weapon_name: RichTextLabel = $"PlayerUI/WeaponName"
@@ -84,6 +88,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				randf_range(-1.0, 1.0)
 			) * 2.0)
 			RunState.use_seanade()
+			
+	if event.is_action_pressed("heal") and RunState.has_item("medheal") == 1 and RunState.can_use_heal() == true:
+		health = maxHealth
+		healthbar.value = health
+		RunState.use_heal()
+		heal_player.stream = heal_sound
+		heal_player.play()
 				
 	if event is InputEventMouseButton:
 		if unlocked == true:
@@ -98,6 +109,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				reload_weapon()
 				return
 			var projectile = projectile_scene.instantiate()
+			pew_player.stream = pew_sound
+			pew_player.play()
 
 			projectile.global_transform = cam.global_transform
 
@@ -170,8 +183,11 @@ func _physics_process(delta: float) -> void:
 				health -= damageToDecrease * 3
 			else:
 				health -= damageToDecrease
-			if health < 0:
-				get_tree().quit()
+			if health <= 0:
+				RunState.reset()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				get_tree().change_scene_to_file("res://gameover.tscn")
+				return
 			healthbar.value = health
 			await get_tree().create_timer(hitCooldown).timeout
 			canBeHit = true

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cnnhrj4vmijpw" path="res://core/PerkText.gd" id="2_xn8a0"]
 [ext_resource type="Texture2D" uid="uid://b6jocifuiul44" path="res://items/Seanade_render.png" id="4_1wp4s"]
 [ext_resource type="Script" uid="uid://da1h6kyhqdet" path="res://seanade_enabler.gd" id="5_h2euk"]
+[ext_resource type="Texture2D" uid="uid://c8x5j82tx5q05" path="res://items/medsign.png" id="5_xocbe"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lh1s"]
 load_path = "res://.godot/imported/crosshair.png-b7f9cb2e0fc32a087972fec001d3421e.ctex"
@@ -208,6 +209,32 @@ expand_mode = 1
 layout_mode = 2
 size_flags_vertical = 8
 text = "G"
+horizontal_alignment = 1
+
+[node name="MedContainer" type="MarginContainer" parent="." unique_id=1616532149]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = 56.0
+offset_right = -132.0
+offset_bottom = 176.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MedContainer" unique_id=1841505819]
+layout_mode = 2
+texture = ExtResource("5_xocbe")
+expand_mode = 1
+
+[node name="Countdown" type="Label" parent="MedContainer" unique_id=306291692]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Q"
 horizontal_alignment = 1
 
 [node name="SeanadeEnabler" type="Node" parent="." unique_id=732985155]

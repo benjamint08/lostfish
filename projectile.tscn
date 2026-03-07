@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bij25tg8u7p4"]
 
 [ext_resource type="Script" uid="uid://d64oysf6p0gv" path="res://projectile.gd" id="1_a85iw"]
+[ext_resource type="AudioStream" uid="uid://c2jg6nklbd8qw" path="res://audio/hitShark.wav" id="2_qxf0c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_akgne"]
 
@@ -26,6 +27,7 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 8
 script = ExtResource("1_a85iw")
+hit_shark_sound = ExtResource("2_qxf0c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=30102911]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)

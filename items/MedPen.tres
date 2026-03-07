@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c6cotakwt04pk"]
+
+[ext_resource type="Script" uid="uid://d3ywhi77e5mmi" path="res://Item.gd" id="1_2om4v"]
+
+[resource]
+script = ExtResource("1_2om4v")
+id = "medheal"
+display_name = "MedPen"
+description = "Heal yourself to max health. 60s cooldown"
+base_cost = 200
+metadata/_custom_type_script = "uid://d3ywhi77e5mmi"

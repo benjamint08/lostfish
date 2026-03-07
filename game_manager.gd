@@ -112,11 +112,11 @@ func _on_shark_died():
 	if alive_sharks <= 0 and started and (spawned >= sharks_per_wave * wave):
 		audio_player.stream = new_round_audio
 		audio_player.play()
-		RunState.add_coins(60, "Round Survival")
+		RunState.add_coins(5, "Round Survival")
 		await get_tree().create_timer(3).timeout
 		if (wave + 1) % 5 == 0:
 			ShopManager.open_shop()
-		elif (wave + 1) % 4 == 0:
+		elif (wave + 1) % 8 == 0:
 			var shopMarine = shopmarine_scene.instantiate()
 			shopMarine.global_position = shop_marker.global_position
 			get_tree().current_scene.add_child(shopMarine)

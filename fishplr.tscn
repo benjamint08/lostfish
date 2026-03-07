@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bwqv17umrovq8" path="res://fishui.tscn" id="2_jtt6x"]
 [ext_resource type="PackedScene" uid="uid://bij25tg8u7p4" path="res://projectile.tscn" id="2_lu1mb"]
 [ext_resource type="PackedScene" uid="uid://brj73mbljuoed" path="res://items/seanade.tscn" id="3_qdhgs"]
+[ext_resource type="AudioStream" uid="uid://cufj3copecp5f" path="res://audio/pew.mp3" id="4_dnbrp"]
 [ext_resource type="PackedScene" uid="uid://1nud44r6cemt" path="res://clown_fish.glb" id="4_kl4gq"]
 [ext_resource type="Script" uid="uid://bt3iv721sojm8" path="res://clown_fishanim.gd" id="5_71dei"]
+[ext_resource type="AudioStream" uid="uid://lstiy210dgwt" path="res://audio/heal.wav" id="5_jps3l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_txdka"]
 
@@ -15,6 +17,8 @@
 script = ExtResource("1_64ltt")
 projectile_scene = ExtResource("2_lu1mb")
 seanade_scene = ExtResource("3_qdhgs")
+pew_sound = ExtResource("4_dnbrp")
+heal_sound = ExtResource("5_jps3l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1827458011]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
@@ -40,3 +44,12 @@ transform = Transform3D(-0.03, 0, -2.6226832e-09, 0, 0.03, 0, 2.6226832e-09, 0, 
 script = ExtResource("5_71dei")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1656462946]
+
+[node name="PewPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=528155407]
+volume_db = -20.0
+
+[node name="HealPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=396957386]
+volume_db = -20.0
+
+[node name="HitSharkPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=56977295]
+volume_db = -20.0
